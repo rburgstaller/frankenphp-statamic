@@ -1,0 +1,19 @@
+#file: noinspection SpellCheckingInspection
+# For more information: https://laravel.com/docs/sail
+services:
+  fp:
+    image: myapp/frankenphp-test
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      # laravel
+      - '8002:443'
+    environment:
+      PORT: 81
+    #user: '33:33'
+    networks:
+      - fp-network
+networks:
+  fp-network:
+    driver: bridge
