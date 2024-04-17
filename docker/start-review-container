@@ -7,7 +7,6 @@ php artisan cache:clear
 echo "got port $PORT"
 
 export CADDY_GLOBAL_OPTIONS="http_port $PORT"
-export CADDY_SERVER_EXTRA_DIRECTIVES="debug"
 export SERVER_NAME="http://0.0.0.0:$PORT"
 
 # check what user and gid we have

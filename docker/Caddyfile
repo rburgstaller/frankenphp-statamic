@@ -1,6 +1,7 @@
 {
 	{$CADDY_GLOBAL_OPTIONS}
 	{$CADDY_GLOBAL_OPTIONS2}
+    
 	debug
 
 	frankenphp {
