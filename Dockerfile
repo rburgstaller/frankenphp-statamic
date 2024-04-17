@@ -56,7 +56,7 @@ COPY --chown=$USER:$WWWGROUP docker/start-review-container /usr/local/bin/start-
 RUN chown -R "$USER":${WWWGROUP} /data/caddy && \
     chown -R "$USER":${WWWGROUP} /config/caddy && \
     chmod 770 /usr/local/bin/start-review-container && \
-    chmod 222 /etc/caddy/Caddyfile && \
+    chmod 444 /etc/caddy/Caddyfile && \
     mkdir -p /var/www/.npm && chown -R $USER:$WWWGROUP /var/www/.npm && \
     chown -R $USER:$WWWGROUP /app
 
