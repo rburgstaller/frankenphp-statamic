@@ -1,0 +1,9 @@
+{
+    "name": "Heroku statamic review apps test",
+    "repository": "https://github.com/rburgstaller/frankenphp-statamic",
+    "env": {},
+    "addons": [],
+    "buildpacks": [],
+    "stack": "container"
+  }
+  
