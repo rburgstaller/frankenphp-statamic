@@ -16,7 +16,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 #
 RUN apt-get update && apt-get install -y \
       gnupg git libnss3-tools \
-      vim  # for testing for now
+      vim net-tools procps  # for testing for now
 
 
 
