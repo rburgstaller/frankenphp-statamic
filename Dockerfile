@@ -66,6 +66,7 @@ COPY --chown=$USER:$WWWGROUP . /app
 COPY --chown=$USER:$WWWGROUP docker/start-review-container /usr/local/bin/start-review-container
 
 RUN mkdir -p /app/storage/logs && \
+    chmod 770 /usr/local/bin/start-review-container && \
     npm install && \
     npm run build
 
