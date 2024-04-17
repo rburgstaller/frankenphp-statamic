@@ -7,7 +7,7 @@ php artisan cache:clear
 echo "got port $PORT"
 
 export CADDY_GLOBAL_OPTIONS="http_port $PORT"
-export SERVER_NAME="http://localhost:$PORT"
+export SERVER_NAME="http://0.0.0.0:$PORT"
 
 # check what user and gid we have
 echo "id follows $(id)"
