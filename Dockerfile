@@ -51,6 +51,8 @@ RUN mkdir /.composer && \
 
 RUN chown -R "$USER":${WWWGROUP} /data/caddy && \
     chown -R "$USER":${WWWGROUP} /config/caddy && \
+    chmod 770 /usr/local/bin/start-review-container && \
+    chmod 222 /etc/caddy/Caddyfile && \
     mkdir -p /var/www/.npm && chown -R $USER:$WWWGROUP /var/www/.npm && \
     chown -R $USER:$WWWGROUP /app
 
@@ -67,8 +69,6 @@ COPY --chown=$USER:$WWWGROUP docker/start-review-container /usr/local/bin/start-
 COPY docker/Caddyfile /etc/caddy/Caddyfile
 
 RUN mkdir -p /app/storage/logs && \
-    chmod 770 /usr/local/bin/start-review-container && \
-    chmod 222 /etc/caddy/Caddyfile && \
     npm install && \
     npm run build
 
