@@ -63,9 +63,13 @@ USER ${USER}
 WORKDIR /app
 
 COPY --chown=$USER:$WWWGROUP . /app
+COPY --chown=$USER:$WWWGROUP docker/start-review-container /usr/local/bin/start-review-container
 
 RUN mkdir -p /app/storage/logs && \
     npm install && \
     npm run build
 
 RUN composer install --no-interaction --no-dev --prefer-dist --optimize-autoloader
+
+
+CMD ["/usr/local/bin/start-review-container"]

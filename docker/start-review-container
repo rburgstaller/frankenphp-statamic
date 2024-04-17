@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# here we can add the code to perform the db migration, db setup etc
+php artisan migrate
+php artisan db:seed
+php artisan cache:clear
+
+echo "got port $PORT"
+
+export CADDY_GLOBAL_OPTIONS="http_port $PORT"
+export SERVER_NAME="http://localhost:$PORT"
+
+# check what user and gid we have
+echo "id follows $(id)"
+echo "whoami follows $(whoami)"
+
+# exec /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
+
+if [ $# -gt 0 ]; then
+  echo "starting custom command $@"
+  exec gosu $WWWUSER "$@"
+else
+  echo "starting entrypoint"
+  exec /usr/local/bin/docker-php-entrypoint --config /etc/caddy/Caddyfile --adapter caddyfile
+fi
