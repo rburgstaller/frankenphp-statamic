@@ -64,9 +64,11 @@ WORKDIR /app
 
 COPY --chown=$USER:$WWWGROUP . /app
 COPY --chown=$USER:$WWWGROUP docker/start-review-container /usr/local/bin/start-review-container
+COPY docker/Caddyfile /etc/caddy/Caddyfile
 
 RUN mkdir -p /app/storage/logs && \
     chmod 770 /usr/local/bin/start-review-container && \
+    chmod 222 /etc/caddy/Caddyfile && \
     npm install && \
     npm run build
 
