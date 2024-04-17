@@ -50,6 +50,7 @@ RUN mkdir /.composer && \
     chown -R "$USER" /.composer
 
 COPY docker/Caddyfile /etc/caddy/Caddyfile
+COPY --chown=$USER:$WWWGROUP docker/start-review-container /usr/local/bin/start-review-container
 
 
 RUN chown -R "$USER":${WWWGROUP} /data/caddy && \
@@ -68,7 +69,6 @@ USER ${USER}
 WORKDIR /app
 
 COPY --chown=$USER:$WWWGROUP . /app
-COPY --chown=$USER:$WWWGROUP docker/start-review-container /usr/local/bin/start-review-container
 
 RUN mkdir -p /app/storage/logs && \
     npm install && \
