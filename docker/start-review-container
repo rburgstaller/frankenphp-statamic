@@ -28,5 +28,6 @@ if [ $# -gt 0 ]; then
   exec gosu $WWWUSER "$@"
 else
   echo "starting entrypoint"
-  exec gosu www-data /usr/local/bin/docker-php-entrypoint --config /etc/caddy/Caddyfile --adapter caddyfile
+#   exec gosu www-data /usr/local/bin/docker-php-entrypoint --config /etc/caddy/Caddyfile --adapter caddyfile
+  exec /usr/local/bin/docker-php-entrypoint --config /etc/caddy/Caddyfile --adapter caddyfile
 fi
