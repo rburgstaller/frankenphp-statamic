@@ -8,9 +8,9 @@ services:
       dockerfile: ./Dockerfile
     ports:
       # laravel
-      - '8002:443'
+      - '9999:9999'
     environment:
-      PORT: 81
+      PORT: 9999
     #user: '33:33'
     networks:
       - fp-network
