@@ -17,7 +17,7 @@ echo "whoami follows $(whoami)"
 
 if [[ -n "${UID}" && "${UID}" -ne 33 ]]; then
     echo "UID is set and is different from 33"
-    usermod -u $UID www-data
+    # usermod -u $UID www-data
 else
     echo "UID is not set or is equal to 33"
 fi
