@@ -16,7 +16,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 #
 RUN apt-get update && apt-get install -y \
       gnupg git libnss3-tools \
-      vim  # for testing for now
+      vim net-tools procps  # for testing for now
 
 
 
@@ -49,8 +49,14 @@ RUN mkdir /.composer && \
     chmod -R ugo+rw /.composer && \
     chown -R "$USER" /.composer
 
+COPY docker/Caddyfile /etc/caddy/Caddyfile
+COPY --chown=$USER:$WWWGROUP docker/start-review-container /usr/local/bin/start-review-container
+
+
 RUN chown -R "$USER":${WWWGROUP} /data/caddy && \
     chown -R "$USER":${WWWGROUP} /config/caddy && \
+    chmod 770 /usr/local/bin/start-review-container && \
+    chmod 444 /etc/caddy/Caddyfile && \
     mkdir -p /var/www/.npm && chown -R $USER:$WWWGROUP /var/www/.npm && \
     chown -R $USER:$WWWGROUP /app
 
@@ -69,3 +75,6 @@ RUN mkdir -p /app/storage/logs && \
     npm run build
 
 RUN composer install --no-interaction --no-dev --prefer-dist --optimize-autoloader
+
+
+CMD ["/usr/local/bin/start-review-container"]
