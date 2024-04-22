@@ -1,7 +1,7 @@
 {
-	{$CADDY_GLOBAL_OPTIONS}
+	{$CADDY_GLOBAL_OPTIONS} 
 	{$CADDY_GLOBAL_OPTIONS2}
-    
+
 	debug
 
 	frankenphp {
@@ -16,7 +16,7 @@
 	order php before file_server
 }
 
-{$CADDY_EXTRA_CONFIG} 
+{$CADDY_EXTRA_CONFIG}
 
 http://localhost:{$PORT:80} {
 	bind 0.0.0.0

@@ -58,6 +58,7 @@ RUN chown -R "$USER":${WWWGROUP} /data/caddy && \
     chmod 770 /usr/local/bin/start-review-container && \
     chmod 444 /etc/caddy/Caddyfile && \
     mkdir -p /var/www/.npm && chown -R $USER:$WWWGROUP /var/www/.npm && \
+    mkdir -p /app/logs/laravel && \
     chown -R $USER:$WWWGROUP /app
 
 

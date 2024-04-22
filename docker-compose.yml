@@ -9,9 +9,10 @@ services:
     ports:
       # laravel
       - '9999:9999'
+      - '2019:2019'
     environment:
       PORT: 9999
-    #user: '33:33'
+    # user: '33:33'
     networks:
       - fp-network
 networks:
