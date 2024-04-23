@@ -1,5 +1,5 @@
 {
-	{$CADDY_GLOBAL_OPTIONS} 
+	{$CADDY_GLOBAL_OPTIONS}
 	{$CADDY_GLOBAL_OPTIONS2}
 
 	debug
@@ -18,7 +18,7 @@
 
 {$CADDY_EXTRA_CONFIG}
 
-http://localhost:{$PORT:80} {
+http://:{$PORT:80} {
 	bind 0.0.0.0
 
 	#log {
