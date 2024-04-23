@@ -18,7 +18,7 @@
 
 {$CADDY_EXTRA_CONFIG}
 
-http://:{$PORT:80} {
+:{$PORT:8080} {
 	bind 0.0.0.0
 
 	#log {
